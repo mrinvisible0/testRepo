@@ -3,7 +3,7 @@ import json
 import urllib
 
 
-# gynVspiakwkzp9TLzND2
+# gitlab issues api: https://docs.gitlab.com/ee/api/issues.html#new-issue
 
 def convertGithubToGitlab(resp):
 	new = []
@@ -43,8 +43,7 @@ def main():
 		query_part = urllib.parse.urlencode(issue, quote_via=urllib.parse.quote)
 		gitlab_url = gitlab_api_url + query_part	
 		# private_token = input("Insert your GitLab private access token: ")
-		# my revoked token
-		private_token = "gynVspiakwkzp9TLzND2"
+		# private_token = ""
 		headers = {"PRIVATE-TOKEN": private_token}
 		post_res = req.post(gitlab_url + query_part, headers=headers)
 		#201 is created which signals whether or not request led to creation of resource
